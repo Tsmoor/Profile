@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSM Portfolio - Gaming Designer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes glowText {
+            0% { text-shadow: 0 0 10px #7c4dff, 0 0 20px #7c4dff, 0 0 30px #7c4dff; }
+            50% { text-shadow: 0 0 20px #448aff, 0 0 30px #448aff, 0 0 40px #448aff; }
+            100% { text-shadow: 0 0 10px #7c4dff, 0 0 20px #7c4dff, 0 0 30px #7c4dff; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #2a1a3a, #1a1a2a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+        }
+        .header {
+                padding: 1rem;
+            }
+
+            .shop-title {
+            font-size: 2.5rem;
+            color: #7c4dff;
+            margin-bottom: 1rem;
+        }
+        .categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-button {
+            padding: 0.8rem 1.5rem;
+            background: rgba(124, 77, 255, 0.1);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-button:hover {
+            background: rgba(124, 77, 255, 0.2);
+            border-color: rgba(124, 77, 255, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            animation: glowText 3s infinite;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #7c4dff, #448aff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(124, 77, 255, 0.5));
+        }
+
+        .logo-small {
+            font-size: 1.8rem;
+            color: #a595ff;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            perspective: 1000px;
+        }
+
+        .section {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            border-color: rgba(124, 77, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(124, 77, 255, 0.2);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(124, 77, 255, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .section:hover::before {
+            opacity: 1;
+        }
+ 
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            color: #fff;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #7c4dff, #448aff);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover .section-title::after {
+            transform: scaleX(1);
+        }
+
+        .about-text {
+            color: #ddd;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(124, 77, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            background: rgba(124, 77, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #7c4dff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            animation: pulse 3s infinite;
+            position: relative;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            background: rgba(124, 77, 255, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #7c4dff, #448aff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .skill-level {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #333;
+            transition: all 0.3s ease;
+        }
+
+        .dot.filled {
+            background: #7c4dff;
+            box-shadow: 0 0 15px #7c4dff;
+        }
+
+        .language-section {
+            margin-top: 3rem;
+        }
+
+        .language-bar {
+            height: 15px;
+            border-radius: 8px;
+            background: rgba(30, 30, 30, 0.9);
+            margin: 1.5rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .language-progress {
+            height: 100%;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #7c4dff, #448aff);
+            position: relative;
+            transition: width 1.5s ease-out;
+        }
+
+        .language-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: shimmer 2s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(400%); }
+        }
+
+        .ar-progress { width: 90%; }
+        .en-progress { width: 75%; }
+
+        @media (max-width: 768px) {
+            .logo { font-size: 3rem; }
+            .logo-small { font-size: 1.4rem; }
+            .section { padding: 1.5rem; }
+            .grid { gap: 2rem; }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">TSM</div>
+            <div class="logo-small">Profile Tsmoor</div>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    Hello! I am Mazen Hamdy Hassan, a graphic designer specializing in Esport Gaming with three years of experience in this field. My passion for graphic design and the world of gaming has driven me to develop my skills in creating innovative designs that align with the needs of the gaming industry. I continuously work on enhancing my techniques and producing work that attracts the gaming audience and keeps up with the latest trends in this field.
+                </p>
+
+                <div class="contact">
+                    <div class="section-title" style="font-size: 1.8rem;">Contact</div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        tsmoor_t
+                    </div>
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        tsmoordesigner@gmail.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">Ai</div>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">Pr</div>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">Ps</div>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="language-section">
+                    <h2 class="section-title">Language</h2>
+                    <div>Ar</div>
+                    <div class="language-bar">
+                        <div class="language-progress ar-progress"></div>
+                    </div>
+                    <div>En</div>
+                    <div class="language-bar">
+                        <div class="language-progress en-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#7c4dff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#7c4dff',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
