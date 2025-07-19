@@ -1,14 +1,28 @@
 {
   "ar": {
-    "name": "مازن حمدي حسن",
-    "discord": "820408813790167041",
+    "logo-sub": "الملف الشخصي – تسموور",
+    "about-title": "عنّي",
+    "about-text": "أهلاً! أنا مازن حمدي حسن، مصمّم جرافيك متخصص في مجال الألعاب الإلكترونية بخبرة ثلاث سنوات. شغفي بالتصميم وعالم الألعاب دفعني لتطوير مهاراتي في إنتاج تصاميم مبتكرة تواكب احتياجات صناعة الألعاب.",
+    "contact-title": "تواصل معي",
     "instagram": "tsmoor_t",
-    "email": "tsmoordesigner@gmail.com"
+    "discord-name": "مازن حمدي حسن",
+    "email": "tsmoordesigner@gmail.com",
+    "skills-title": "المهارات",
+    "lang-title": "اللغات",
+    "lang-ar": "العربية",
+    "lang-en": "الإنجليزية"
   },
   "en": {
-    "name": "Mazen Hamdy Hassan",
-    "discord": "820408813790167041",
+    "logo-sub": "Portfolio – Tsmoor",
+    "about-title": "About Me",
+    "about-text": "Hi! I’m Mazen Hamdy Hassan, a graphic designer specialized in Esports with 3 years of experience. My passion for design and gaming drives me to create innovative visuals that meet the demands of the gaming industry.",
+    "contact-title": "Contact",
     "instagram": "tsmoor_t",
-    "email": "tsmoordesigner@gmail.com"
+    "discord-name": "Mazen Hamdy Hassan",
+    "email": "tsmoordesigner@gmail.com",
+    "skills-title": "Skills",
+    "lang-title": "Languages",
+    "lang-ar": "Arabic",
+    "lang-en": "English"
   }
 }
