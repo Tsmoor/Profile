@@ -1,444 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSM Portfolio - Gaming Designer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ملفي الشخصي - مازن حمدي حسن</title>
+
+    <!-- SEO & Social -->
+    <meta name="description" content="مازن حمدي حسن، مصمم جرافيك متخصص في مجال الألعاب الإلكترونية بخبرة 3 سنوات.">
+    <meta property="og:title" content="ملفي - مازن حمدي | مصمم جرافيك">
+    <meta property="og:description" content="تخصص تصميم الجرافيك للألعاب الإلكترونية (Esports).">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cdn.example.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Preload fonts & libs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Dark-mode toggle icon -->
     <style>
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        :root{
+            --glass: rgba(20 20 20 / .65);
+            --purple: #7c4dff;
+            --blue:   #448aff;
         }
-
-        @keyframes glowText {
-            0% { text-shadow: 0 0 10px #7c4dff, 0 0 20px #7c4dff, 0 0 30px #7c4dff; }
-            50% { text-shadow: 0 0 20px #448aff, 0 0 30px #448aff, 0 0 40px #448aff; }
-            100% { text-shadow: 0 0 10px #7c4dff, 0 0 20px #7c4dff, 0 0 30px #7c4dff; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #2a1a3a, #1a1a2a);
+        html{scroll-behavior: smooth; scroll-snap-type: y proximity;}
+        body{
+            margin:0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(-45deg,#0a0a0a,#1a1a1a,#2a1a3a,#1a1a2a);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
+            color:#fff;
+            min-height:100vh;
+            overflow-x:hidden;
+        }
+        /* Respect reduced motion */
+        @media (prefers-reduced-motion: no-preference){
+            body{animation: gradientBG 15s ease infinite;}
+        }
+        @keyframes gradientBG{
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        #particles-js{
+            position:fixed; inset:0; z-index:1;
+        }
+        .theme-btn{
+            position:fixed; top:1rem; right:1rem; z-index:999;
+            background:var(--purple); color:#fff; border:none;
+            border-radius:50%; width:48px; height:48px;
+            cursor:pointer; font-size:1.2rem;
+            transition:transform .3s;
+        }
+        .theme-btn:hover{transform:scale(1.1);}
+        body.light{
+            background: linear-gradient(-45deg,#f5f5f5,#e0e0e0,#ddd,#e7e7ff);
+            color:#111;
         }
 
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+        .container{max-width:1200px;margin:0 auto;padding:2rem;position:relative;z-index:2;}
+        .logo-container{text-align:center;margin-bottom:4rem;animation:float 6s ease-in-out infinite;}
+        @media (prefers-reduced-motion: no-preference){
+            .logo-container{animation:float 6s ease-in-out infinite;}
         }
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+        @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+        .logo{
+            font-size:4rem;font-weight:900;letter-spacing:8px;
+            background:linear-gradient(45deg,var(--purple),var(--blue));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            filter:drop-shadow(0 0 15px rgba(124,77,255,.5));
+            animation:glowText 3s infinite;
         }
-        .header {
-                padding: 1rem;
-            }
+        @media (prefers-reduced-motion: no-preference){
+            .logo{animation:glowText 3s infinite;}
+        }
+        @keyframes glowText{
+            0%{text-shadow:0 0 10px var(--purple),0 0 20px var(--purple),0 0 30px var(--purple)}
+            50%{text-shadow:0 0 20px var(--blue),0 0 30px var(--blue),0 0 40px var(--blue)}
+            100%{text-shadow:0 0 10px var(--purple),0 0 20px var(--purple),0 0 30px var(--purple)}
+        }
+        .logo-small{font-size:1.4rem;color:#a595ff;letter-spacing:4px;text-transform:uppercase;opacity:.9;}
 
-            .shop-title {
-            font-size: 2.5rem;
-            color: #7c4dff;
-            margin-bottom: 1rem;
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem;perspective:1000px}
+        .section{
+            background:var(--glass); padding:2.5rem; border-radius:20px;
+            backdrop-filter:blur(20px) saturate(180%);
+            border:1px solid rgba(124,77,255,.2); transition:all .4s ease;
+            position:relative; overflow:hidden; scroll-snap-align:start;
         }
-        .categories {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        .section:hover{transform:translateY(-10px) rotateX(5deg);border-color:rgba(124,77,255,.6)}
+        .section::before{
+            content:''; position:absolute; top:-50%; left:-50%;
+            width:200%; height:200%;
+            background:radial-gradient(circle,rgba(124,77,255,.1),transparent 70%);
+            opacity:0; transition:opacity .3s;
         }
+        .section:hover::before{opacity:1}
 
-        .category-button {
-            padding: 0.8rem 1.5rem;
-            background: rgba(124, 77, 255, 0.1);
-            border: 1px solid rgba(124, 77, 255, 0.2);
-            border-radius: 8px;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .section-title{font-size:2.2rem;margin-bottom:2rem;position:relative;display:inline-block;color:#fff}
+        .section-title::after{
+            content:''; position:absolute; bottom:-10px; left:0;
+            width:100%; height:3px; background:linear-gradient(90deg,var(--purple),var(--blue));
+            transform:scaleX(0); transform-origin:left; transition:transform .3s ease;
         }
+        .section:hover .section-title::after{transform:scaleX(1)}
 
-        .category-button:hover {
-            background: rgba(124, 77, 255, 0.2);
-            border-color: rgba(124, 77, 255, 0.4);
-        }
+        .about-text{color:#ddd;line-height:1.8;font-size:1.1rem;margin-bottom:2rem}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
+        .contact-item{
+            display:flex;align-items:center;margin-bottom:1.5rem;padding:1rem;
+            background:rgba(124,77,255,.1);border-radius:10px;transition:all .3s;cursor:pointer
         }
+        .contact-item:hover{background:rgba(124,77,255,.2);transform:translateX(10px)}
+        .contact-item i{font-size:1.5rem;margin-left:1rem;color:var(--purple)}
 
-        .logo-container {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: float 6s ease-in-out infinite;
+        .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:2rem;margin-top:2rem}
+        .skill-card{
+            background:rgba(30,30,30,.9);padding:1.5rem;border-radius:15px;text-align:center;
+            transition:all .4s;
         }
+        @media (prefers-reduced-motion: no-preference){
+            .skill-card{animation:pulse 3s infinite}
+            @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+        }
+        .skill-card:hover{transform:translateY(-15px) scale(1.05);background:rgba(124,77,255,.2)}
+        .skill-icon{font-size:2.8rem;margin-bottom:1rem;background:linear-gradient(45deg,var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .skill-level{display:flex;justify-content:center;gap:6px;margin-top:1rem}
+        .dot{width:12px;height:12px;border-radius:50%;background:#333;transition:all .3s}
+        .dot.filled{background:var(--purple);box-shadow:0 0 15px var(--purple)}
 
-        .logo {
-            font-size: 4rem;
-            font-weight: 900;
-            letter-spacing: 8px;
-            animation: glowText 3s infinite;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #7c4dff, #448aff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(124, 77, 255, 0.5));
+        .language-section{margin-top:3rem}
+        .language-bar{height:15px;border-radius:8px;background:rgba(30,30,30,.9);margin:1.5rem 0;overflow:hidden;position:relative}
+        .language-progress{
+            height:100%;border-radius:8px;background:linear-gradient(90deg,var(--purple),var(--blue));
+            position:relative;transition:width 1.5s ease;
         }
+        .language-progress::after{
+            content:'';position:absolute;top:0;left:0;width:30px;height:100%;
+            background:rgba(255,255,255,.3);
+            animation:shimmer 2s infinite linear;
+        }
+        @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(400%)}}
+        .ar-progress{width:90%}.en-progress{width:75%}
 
-        .logo-small {
-            font-size: 1.8rem;
-            color: #a595ff;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            opacity: 0.9;
+        /* Print */
+        @media print{
+            #particles-js,.theme-btn{display:none}
+            body{background:#fff;color:#000}
         }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            perspective: 1000px;
-        }
-
-        .section {
-            background: rgba(20, 20, 20, 0.8);
-            padding: 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(124, 77, 255, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            border-color: rgba(124, 77, 255, 0.6);
-            box-shadow: 0 10px 30px rgba(124, 77, 255, 0.2);
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(124, 77, 255, 0.1), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .section:hover::before {
-            opacity: 1;
-        }
- 
-        .container1 {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-            color: #fff;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #7c4dff, #448aff);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover .section-title::after {
-            transform: scaleX(1);
-        }
-
-        .about-text {
-            color: #ddd;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: rgba(124, 77, 255, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .contact-item:hover {
-            background: rgba(124, 77, 255, 0.2);
-            transform: translateX(10px);
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: #7c4dff;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
-            background: rgba(30, 30, 30, 0.9);
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.4s ease;
-            animation: pulse 3s infinite;
-            position: relative;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            background: rgba(124, 77, 255, 0.2);
-        }
-
-        .skill-icon {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #7c4dff, #448aff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-        }
-
-        .skill-level {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            margin-top: 1rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #333;
-            transition: all 0.3s ease;
-        }
-
-        .dot.filled {
-            background: #7c4dff;
-            box-shadow: 0 0 15px #7c4dff;
-        }
-
-        .language-section {
-            margin-top: 3rem;
-        }
-
-        .language-bar {
-            height: 15px;
-            border-radius: 8px;
-            background: rgba(30, 30, 30, 0.9);
-            margin: 1.5rem 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .language-progress {
-            height: 100%;
-            border-radius: 8px;
-            background: linear-gradient(90deg, #7c4dff, #448aff);
-            position: relative;
-            transition: width 1.5s ease-out;
-        }
-
-        .language-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 30px;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            animation: shimmer 2s infinite linear;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(400%); }
-        }
-
-        .ar-progress { width: 90%; }
-        .en-progress { width: 75%; }
-
-        @media (max-width: 768px) {
-            .logo { font-size: 3rem; }
-            .logo-small { font-size: 1.4rem; }
-            .section { padding: 1.5rem; }
-            .grid { gap: 2rem; }
+        /* Touch devices */
+        @media (hover:none) and (pointer:coarse){
+            .section:hover{transform:none}
+            .skill-card:hover{transform:translateY(-5px) scale(1.02)}
         }
     </style>
 </head>
 
-
 <body>
     <div id="particles-js"></div>
-    <div class="container">
+
+    <!-- زر تبديل الوضع الليلي -->
+    <button id="themeToggle" class="theme-btn" aria-label="تبديل الوضع الليلي">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <main class="container">
         <div class="logo-container">
             <div class="logo">TSM</div>
             <div class="logo-small">Profile Tsmoor</div>
         </div>
 
         <div class="grid">
-            <div class="section">
-                <h2 class="section-title">About Me</h2>
+            <section class="section" aria-labelledby="about">
+                <h2 id="about" class="section-title">عنّي</h2>
                 <p class="about-text">
-                    Hello! I am Mazen Hamdy Hassan, a graphic designer specializing in Esport Gaming with three years of experience in this field. My passion for graphic design and the world of gaming has driven me to develop my skills in creating innovative designs that align with the needs of the gaming industry. I continuously work on enhancing my techniques and producing work that attracts the gaming audience and keeps up with the latest trends in this field.
+                    أهلاً! أنا مازن حمدي حسن، مصمّم جرافيك متخصص في مجال الرياضات الإلكترونية (Esports) بخبرة ثلاث سنوات.  
+                    شغفي بالتصميم وعالم الألعاب دفعني لتطوير مهاراتي في إنتاج تصاميم مبتكرة تواكب احتياجات صناعة الألعاب.  
+                    أعمل باستمرار على تحسين تقنياتي لتقديم أعمال جذابة لجمهور اللاعبين ومواكبة أحدث التوجّهات.
                 </p>
 
                 <div class="contact">
-                    <div class="section-title" style="font-size: 1.8rem;">Contact</div>
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        tsmoor_t
-                    </div>
-                    <div class="contact-item">
-                        <i class="far fa-envelope"></i>
-                        tsmoordesigner@gmail.com
-                    </div>
+                    <div class="section-title" style="font-size:1.8rem;">تواصل معي</div>
+                    <a class="contact-item" href="https://www.instagram.com/tsmoor_t" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i> tsmoor_t
+                    </a>
+                    <a class="contact-item" href="mailto:tsmoordesigner@gmail.com">
+                        <i class="far fa-envelope"></i> tsmoordesigner@gmail.com
+                    </a>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
-                <h2 class="section-title">Skills</h2>
+            <section class="section" aria-labelledby="skills">
+                <h2 id="skills" class="section-title">المهارات</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
                         <div class="skill-icon">Ai</div>
                         <div class="skill-level">
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
                         </div>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">Pr</div>
                         <div class="skill-level">
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
                         </div>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">Ps</div>
                         <div class="skill-level">
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
-                            <span class="dot filled"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="language-section">
-                    <h2 class="section-title">Language</h2>
-                    <div>Ar</div>
-                    <div class="language-bar">
-                        <div class="language-progress ar-progress"></div>
-                    </div>
-                    <div>En</div>
-                    <div class="language-bar">
-                        <div class="language-progress en-progress"></div>
-                    </div>
+                    <h2 class="section-title">اللغات</h2>
+                    <div>العربية</div>
+                    <div class="language-bar"><div class="language-progress ar-progress"></div></div>
+                    <div>الإنجليزية</div>
+                    <div class="language-bar"><div class="language-progress en-progress"></div></div>
                 </div>
-            </div>
+            </section>
         </div>
-    </div>
+    </main>
 
+    <!-- particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#7c4dff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#7c4dff',
-                    opacity: 0.2,
-                    width: 1
+        /* Dark-mode toggle */
+        const btn = document.getElementById('themeToggle');
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('light');
+            btn.querySelector('i').className = document.body.classList.contains('light')
+                ? 'fas fa-sun' : 'fas fa-moon';
+        });
+
+        /* Init particles after everything loaded */
+        window.addEventListener('load', () => {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#7c4dff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: false },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true, distance: 150, color: '#7c4dff', opacity: 0.2, width: 1
+                    },
+                    move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
                 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    onclick: { enable: true, mode: 'push' },
-                    resize: true
-                }
-            },
-            retina_detect: true
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        onclick: { enable: true, mode: 'push' },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
         });
     </script>
 </body>
